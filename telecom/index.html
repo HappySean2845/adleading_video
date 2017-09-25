@@ -24,17 +24,10 @@
     }
     </style>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
-    <script src="js/resLoader.js"></script>
-    <!-- 微信JS -->
     <script type="text/javascript" src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
-    <!-- 微信JSDK基础JSLoad -->
-    <script type="text/javascript" src="http://etude.yiqipaoba.com/util/html/ka/loadJS.js"></script>
-    <script type="text/javascript" id="weixinjssdk"></script>
-    <script>
-    //微信JSDK基础
-    var _spurl = window.location.href.split('#')[0];
-    loadJS("weixinjssdk", "http://etude.yiqipaoba.com/weixin/ajax/GetWeChatJs.ashx?fromurl=" + encodeURIComponent(_spurl))
-    </script>
+    <script src="js/resLoader.js"></script>
+    <script type="text/javascript" src="js/loadJS.js"></script>
+    <script type="text/javascript" src="js/shares.js"></script>
 </head>
 
 <body>
@@ -60,48 +53,6 @@
           console.log(111)
       }
       audioAutoPlay();
-    })
-    //分享后回调方法
-    function aftersharesuccess() {}
-
-    function aftershare() {
-        $.post('/ajax/PageStatistics.ashx?wxid=10&PageID=20170918&PageUrl=' + encodeURIComponent(location.href) + '&ActionType=2&CustomID=&Openid=');
-    }
-    //jsdk ready
-    wx.ready(function() {
-
-        wx.onMenuShareTimeline({
-            title   : '深夜，出差的老公给我发了一个视频请求', // 分享标题
-            link    : _spurl, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-            imgUrl  : 'http://etude.yiqipaoba.com/util/html/ka/fm.jpg', // 分享图标
-            success : function() {
-                // 用户确认分享后执行的回调函数
-                aftershare();
-            },
-            cancel: function() {
-                // 用户取消分享后执行的回调函数
-            }
-        });
-        wx.onMenuShareAppMessage({
-            title   : '深夜，出差的老公给我发了一个视频请求', // 分享标题
-            desc    : '短短几分钟究竟发生了什么？', // 分享描述
-            link    : _spurl, // 分享链接
-            imgUrl  : 'http://etude.yiqipaoba.com/util/html/ka/fm.jpg', // 分享图标
-            type    : '', // 分享类型,music、video或link，不填默认为link
-            dataUrl : '', // 如果type是music或video，则要提供数据链接，默认为空
-            success: function() {
-                // 用户确认分享后执行的回调函数
-                aftershare();
-            },
-            cancel: function() {
-                // 用户取消分享后执行的回调函数
-            }
-        });
-    });
-
-    $(function() {
-        //数据统计
-        $.post('/ajax/PageStatistics.ashx?wxid=10&PageID=20170918&PageUrl=' + encodeURIComponent(location.href) + '&ActionType=1&CustomID=&Openid=');
     })
     </script>
     <script>
