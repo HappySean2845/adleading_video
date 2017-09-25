@@ -33,8 +33,8 @@ wx.ready(function() {
 });
 var addWeiXinEvent = function(index) {
     $.timelineTitle = "深夜，出差的老公给我发了一个视频请求";
-    $.shareAppDesc = "深夜，出差的老公给我发了一个视频请求";
-    $.shareAppTitle = "短短几分钟究竟发生了什么？";
+    $.shareAppDesc = "短短几分钟究竟发生了什么？";
+    $.shareAppTitle = "深夜，出差的老公给我发了一个视频请求";
     $.shareUrl = window.location.href
     $.shareImage = "http://www.adleading.com/adleading_video/telecom/images/share.png";
     wx.onMenuShareAppMessage({
