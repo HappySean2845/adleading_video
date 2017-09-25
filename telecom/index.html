@@ -38,6 +38,9 @@
 </head>
 
 <body>
+    <audio loop="true" sytle="display:none" id="BGM">
+        <source src="bgm.mp3" type="audio/mpeg"></source>
+    </audio>
     <div class="all">
         <div class="all" id="loading"></div>
         <div id="play" class="all" style=""></div>
@@ -47,6 +50,17 @@
         <!-- <div class="inner"><a href="javascript:;" id="replay" class="btn"></a></div> -->
     </div>
     <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      function audioAutoPlay() {
+          var audio = document.getElementById('BGM');
+              audio.play();
+          document.addEventListener("WeixinJSBridgeReady", function () {
+              audio.play();
+          }, false);
+          console.log(111)
+      }
+      audioAutoPlay();
+    })
     //分享后回调方法
     function aftersharesuccess() {}
 
@@ -126,7 +140,8 @@
         var loader = new resLoader({
             resources: [
                 'telecom.mp4',
-                'images/ending.jpg',
+                'images/end.jpg',
+                'bgm.mp3',
             ],
             onStart: function(total) {
                 console.log('start:' + total);
